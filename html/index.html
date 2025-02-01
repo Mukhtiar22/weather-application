@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyWeatherApp</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    
+    <nav class="navbar">
+        <div class="logo">GoWeather</div>
+        <div class="welcome-text">
+            <p>
+                Welcome to GoWeather
+            </p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        </div>
+      </nav>
+
+
+
+
+
+
+   
+    <div class="card">
+      <div class="search">
+        <input type="text" placeholder="Enter City Name" spellcheck="false" />
+        <button>
+          <img src="../images/search.png" alt="" />
+        </button>
+      </div>
+      <div class="error">
+        <p>Invalid City Name</p>
+      </div>
+      <div class="weather">
+        <img src="../images/rain.png" alt="rain" class="weather_icon" />
+        <h1 class="temp">22°C</h1>
+        <h2 class="city">Sukkur</h2>
+        <div class="details">
+          <div class="col">
+            <img src="../images/humidity.png" alt="" />
+            <div>
+              <p class="humidity">50%</p>
+              <p>humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="../images/drizzle.png" alt="" />
+            <div>
+              <p class="wind">15% km/h</p>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-logo">
+            <h2>GoWeather</h2>
+            <p>Your daily weather companion</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Email: mukhtiar.mto@gmal.com</p>
+            <p>Phone: +92 3069088997</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 GoWeather. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      const apiKey = "a0a43ac84be1735bdfe4651370e1391b";
+      const apiUrl =
+        "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+      const searchBox = document.querySelector(".search input");
+      const searchBtn = document.querySelector(".search button");
+      const weather_icon = document.querySelector(".weather_icon");
+
+      async function checkWeather(city) {
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+        if(response.status == 404){
+            document.querySelector(".error").style.display="block";
+            document.querySelector(".weather").style.display="none";
+
+        }
+        else{
+            var data = await response.json();
+
+
+
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML =Math.round(data.main.temp) + "°C";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+        
+
+        
+      document.querySelector(".weather").style.display ="block";
+      document.querySelector(".error").style.display="none";
+
+
+
+        }
+
+        
+    }
+
+
+      searchBtn.addEventListener("click", () => {
+        checkWeather(searchBox.value);
+      });
+
+    </script>
+  </body>
+</html>
