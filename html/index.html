@@ -3,151 +3,140 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyWeatherApp</title>
+    <title> Monthly Energy Consumption Saver</title>
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
     
     <nav class="navbar">
-        <div class="logo">GoWeather</div>
+        <div class="logo">ENERGY SAVER CHECKER</div>
         <div class="welcome-text">
-            <p>
-                Welcome to GoWeather
+            <p id="welcome">
+              A Solution for Climate Change
             </p>
         </div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
 
         </div>
       </nav>
-
-
-
-
-
-
    
     <div class="card">
-      <div class="search">
-        <input type="text" placeholder="Enter City Name" spellcheck="false" />
-        <button>
-          <img src="../images/search.png" alt="" />
-        </button>
-      </div>
-      <div class="error">
-        <p>Invalid City Name</p>
-      </div>
-      <div class="weather">
-        <img src="../images/rain.png" alt="rain" class="weather_icon" />
-        <h1 class="temp">22°C</h1>
-        <h2 class="city">Sukkur</h2>
-        <div class="details">
-          <div class="col">
-            <img src="../images/humidity.png" alt="" />
-            <div>
-              <p class="humidity">50%</p>
-              <p>humidity</p>
-            </div>
-          </div>
-          <div class="col">
-            <img src="../images/drizzle.png" alt="" />
-            <div>
-              <p class="wind">15% km/h</p>
-              <p>Wind Speed</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h1>Input Table</h1>
+      <p>Enter your monthly energy consumption data below:</p>
+      <p>Note: Please enter the data in the format specified.</p>
+<input type="month" name="month" id="month">
+      <table border="1" id="Table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>ELECTRICITY(kw/h)</th>
+            <th>GAS(m^3)</th>
+            <th>WATER(Ltr)</th>
+            <Th>Submit</Th>
+            <Th>Edit</Th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="date" name="row1_col1" style="width: 100%;"></td>
+            <td><input type="number" name="row1_col2" style="width: 100%;"></td>
+            <td><input type="number" name="row1_col3" style="width: 100%;"></td>
+            <td><input type="number" name="row1_col4" style="width: 100%;"></td>
+            <td><input type="button" value="submit" id="submit-btn"></td>
+            <td><input type="button" name="edit" id="edit-btn" value="Edit"></td>
+          </tr>
+        </tbody>
+        
+      </table>
     </div>
-
 
 
     <footer class="footer">
         <div class="footer-container">
           <div class="footer-logo">
-            <h2>GoWeather</h2>
-            <p>Your daily weather companion</p>
+            <h2 id="heading-tags">ENERGY SAVER</h2>
+            <p id="info">My ENERGY SAVER Consumption checker checks the user montly energy usage to reduce the climate change challenges</p>
           </div>
           <div class="footer-links">
-            <h3>Quick Links</h3>
+            <h2 id="heading-tags">Quick Links</h3>
             <ul>
               <li><a href="#home">Home</a></li>
-              <li><a href="#features">Features</a></li>
               <li><a href="#about">About Us</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
           <div class="footer-contact">
-            <h3>Contact Us</h3>
+            <h2 id="heading-tags">Contact Us</h3>
             <p>Email: mukhtiar.mto@gmal.com</p>
             <p>Phone: +92 3069088997</p>
           </div>
         </div>
+        <br>
         <div class="footer-bottom">
-          <p>© 2024 GoWeather. All Rights Reserved.</p>
+          <p>© 2025 EnergySaver. All Rights Reserved.</p>
         </div>
       </footer>
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
-      const apiKey = "a0a43ac84be1735bdfe4651370e1391b";
-      const apiUrl =
-        "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-      const searchBox = document.querySelector(".search input");
-      const searchBtn = document.querySelector(".search button");
-      const weather_icon = document.querySelector(".weather_icon");
+      // JavaScript to dynamically generate rows
+      const tableBody = document.querySelector('tbody');
+      for (let i = 2; i <= 30; i++) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><input type="date" name="row${i}_col1" style="width: 100%;"></td>
+          <td><input type="text" name="row${i}_col2" style="width: 100%;"></td>
+          <td><input type="text" name="row${i}_col3" style="width: 100%;"></td>
+          <td><input type="text" name="row${i}_col4" style="width: 100%;"></td>
+          <td><input type="button" name="submit" value="submit" id="submit-btn"></td>
+          <td><input type="button" name="edit" id="edit-btn" value="Edit"></td>
+          `;
+        tableBody.appendChild(row);
+      }
+      // JavaScript to handle the submit button click
+      const submitButtons = document.querySelectorAll('input[type="button"][value="submit"]');
+      submitButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const row = button.closest('tr');
+          const date = row.querySelector('input[name^="row"][name$="_col1"]').value;
+          const electricity = row.querySelector('input[name^="row"][name$="_col2"]').value;
+          const gas = row.querySelector('input[name^="row"][name$="_col3"]').value;
+          const water = row.querySelector('input[name^="row"][name$="_col4"]').value;
 
-      async function checkWeather(city) {
-        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-
-        if(response.status == 404){
-            document.querySelector(".error").style.display="block";
-            document.querySelector(".weather").style.display="none";
-
-        }
-        else{
-            var data = await response.json();
-
-
-
-        document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML =Math.round(data.main.temp) + "°C";
-        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-        document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
-
-        
-
-        
-      document.querySelector(".weather").style.display ="block";
-      document.querySelector(".error").style.display="none";
-
-
-
-        }
-
-        
-    }
-
-
-      searchBtn.addEventListener("click", () => {
-        checkWeather(searchBox.value);
+          // Perform your submission logic here
+          console.log(`Date: ${date}, Electricity: ${electricity}, Gas: ${gas}, Water: ${water}`);
+        });
       });
 
+
+      // JavaScript to handle the edit button click   
+
+      const editButtons = document.querySelectorAll('input[type="button"][value="Edit"]');
+      editButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const row = button.closest('tr');
+          const date = row.querySelector('input[name^="row"][name$="_col1"]').value;
+          const electricity = row.querySelector('input[name^="row"][name$="_col2"]').value;
+          const gas = row.querySelector('input[name^="row"][name$="_col3"]').value;
+          const water = row.querySelector('input[name^="row"][name$="_col4"]').value;
+
+          // Perform your edit logic here
+          console.log(`Editing - Date: ${date}, Electricity: ${electricity}, Gas: ${gas}, Water: ${water}`);
+        });
+      });
+
+      // JavaScript to handle the month input change
+      const monthInput = document.getElementById('month');
+      monthInput.addEventListener('change', () => {
+        const selectedMonth = monthInput.value;
+        console.log(`Selected month: ${selectedMonth}`);
+        // Perform any additional logic based on the selected month
+
+
+      });
     </script>
   </body>
 </html>
