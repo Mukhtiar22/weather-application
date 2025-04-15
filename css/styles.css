@@ -33,55 +33,6 @@ body{
     margin: 15px;
 
 }
-.search{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-}
-.search input{
-    border: 0;
-    outline: 0;
-    background: #ebfffc;
-    color:#555;
-    padding: 10px 25px;
-    height: 60px;
-    border-radius: 30px;
-    flex: 1;
-    margin-right: 16px;
-    font-size: 18px;
-     
-}
-.search button{
-    border: 0;
-    outline: 0;
-    background: #ebfffc;
-border-radius: 50%;
-width: 60px;
-height: 60px;
-cursor: pointer;
-
-}
-.search button img{
-    width: 16px;
-
-}
-.weather_icon{
-    width: 170px;
-    margin-top: 30px;
-
-}
-.weather h1{
-    font-size: 80px;
-    font-weight: 500;
-
-}
-.weather h2{
-    font-size: 45px;
-    font-weight: 400;
-    margin-top: -10px;   
-}
 .details{
     display: flex;
     align-items: center;
@@ -127,19 +78,19 @@ cursor: pointer;
   
   .logo {
     color: rgb(235, 238, 69);
-    font-size: 28px; /* Slightly larger font size */
+    font-size: 28px; 
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
-    letter-spacing: 1.5px; /* Adds spacing between letters */
-    line-height: 1.5; /* Improves readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    letter-spacing: 1.5px;
+    line-height: 1.5; 
     background: linear-gradient(90deg, rgba(235,238,69,1) 0%, rgba(255,165,0,1) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Gradient text effect */
-    padding: 10px; /* Adds some padding for spacing */
-    border-radius: 8px; /* Rounds the edges */
+    -webkit-text-fill-color: transparent; 
+    padding: 10px; 
+    border-radius: 8px; 
 }
   
   .nav-links {
@@ -154,26 +105,25 @@ cursor: pointer;
   
   .nav-links a {
     color: rgb(235, 238, 69);
-    font-size: 28px; /* Slightly larger font size */
+    font-size: 28px; 
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
-    letter-spacing: 1.5px; /* Adds spacing between letters */
-    line-height: 1.5; /* Improves readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    letter-spacing: 1.5px; 
+    line-height: 1.5;
     background: linear-gradient(90deg, rgba(235,238,69,1) 0%, rgba(255,165,0,1) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Gradient text effect */
-    padding: 10px; /* Adds some padding for spacing */
-    border-radius: 8px; /* Rounds the edges */
+    -webkit-text-fill-color: transparent; 
+    padding: 10px; 
+    border-radius: 8px; 
 }
   
   .nav-links a:hover {
     color: #ff9800;
   }
   
-  /* Toggle Button (for responsiveness) */
   .toggle-button {
     display: none;
     flex-direction: column;
@@ -188,7 +138,6 @@ cursor: pointer;
     transition: 0.3s;
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     .nav-links {
       display: none;
@@ -213,35 +162,34 @@ cursor: pointer;
 
   .welcome-text {
       color: rgb(235, 238, 69);
-      font-size: 28px; /* Slightly larger font size */
+      font-size: 28px; 
       font-weight: bold;
       text-align: center;
       margin-top: 20px;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
-      letter-spacing: 1.5px; /* Adds spacing between letters */
-      line-height: 1.5; /* Improves readability */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+      letter-spacing: 1.5px; 
+      line-height: 1.5; 
       background: linear-gradient(90deg, rgba(235,238,69,1) 0%, rgba(255,165,0,1) 100%);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; /* Gradient text effect */
-      padding: 10px; /* Adds some padding for spacing */
-      border-radius: 8px; /* Rounds the edges */
+      -webkit-text-fill-color: transparent;
+      padding: 10px; 
+      border-radius: 8px; 
   }
 #heading-tags{
   color: rgb(235, 238, 69);
-  font-size: 28px; /* Slightly larger font size */
+  font-size: 28px; 
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
-  letter-spacing: 1.5px; /* Adds spacing between letters */
-  line-height: 1.5; /* Improves readability */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);   letter-spacing: 1.5px;
+  line-height: 1.5; 
   background: linear-gradient(90deg, rgba(235,238,69,1) 0%, rgba(255,165,0,1) 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Gradient text effect */
-  padding: 10px; /* Adds some padding for spacing */
-  border-radius: 8px; /* Rounds the edges */
+  -webkit-text-fill-color: transparent; 
+  padding: 10px; 
+  border-radius: 8px;
 }
 
   
@@ -250,7 +198,7 @@ cursor: pointer;
     color: #ffffff;
     padding: 30px 20px;
     text-align: center;
-    margin-top: 12%;
+    margin-top: auto;
 
   }
   
